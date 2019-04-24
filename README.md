@@ -11,6 +11,8 @@ A C# program that attempts to solve MinesweeperX (http://www.curtisbright.com/ms
 - Set the w,h and bombs variables in program.cs to the width, height and amount of bombs of the board you are currenly trying to solve
 - Start the program
 - Press enter
+- If it is making obviously wrong moves/flagging wrong bombs double check your w and h variable
+- If it crashes when reading the board check if MinesweeperX is open and double check your w and h variables
 
 # Adding support for a different minesweeper
 - Create a new class that inherits from Board
