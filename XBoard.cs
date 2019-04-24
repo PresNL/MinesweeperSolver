@@ -49,8 +49,16 @@ namespace MinesweeperSolver
         uint identifier = User32.GetWindowThreadProcessId(wnd, out process_id);
         if (process_id == processid)
         {
-          window = wnd;
-          return false;
+          User32.Rect rect = new User32.Rect();
+          User32.GetWindowRect(wnd, ref rect);
+
+          int width = rect.right - rect.left;
+          int height = rect.bottom - rect.top;
+          if (width > 0 && height > 0)
+          {
+            window = wnd;
+            return false;
+          }
         }
 
         // but return true here so that we iterate all windows

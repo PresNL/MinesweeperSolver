@@ -11,9 +11,9 @@ namespace MinesweeperSolver
   {
     static void Main(string[] args)
     {
-      int w = 16;
-      int h = 16;
-      int bombs = 40;
+      int w = 8;
+      int h = 8;
+      int bombs = 10;
       Console.WriteLine("Ready?");
       Console.ReadKey();
       Board board = new XBoard(w, h);
