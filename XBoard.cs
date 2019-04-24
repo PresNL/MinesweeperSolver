@@ -52,9 +52,13 @@ namespace MinesweeperSolver
           User32.Rect rect = new User32.Rect();
           User32.GetWindowRect(wnd, ref rect);
 
+          int capacity = User32.GetWindowTextLength(new HandleRef(this, wnd)) * 2;
+          StringBuilder stringBuilder = new StringBuilder(capacity);
+          User32.GetWindowText(new HandleRef(this, wnd), stringBuilder, stringBuilder.Capacity);
+
           int width = rect.right - rect.left;
           int height = rect.bottom - rect.top;
-          if (width > 0 && height > 0)
+          if (width > 0 && height > 0 && stringBuilder.ToString() == "Minesweeper X")
           {
             window = wnd;
             return false;
@@ -73,7 +77,7 @@ namespace MinesweeperSolver
       User32.SetForegroundWindow(minesweeper_window);
       var rect = new User32.Rect();
       User32.GetWindowRect(minesweeper_window, ref rect);
-      
+
       int width = rect.right - rect.left;
       int height = rect.bottom - rect.top;
 
@@ -191,6 +195,11 @@ public class User32
 
   [System.Runtime.InteropServices.DllImport("user32.dll")]
   public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
+  [DllImport("user32.dll", CharSet = CharSet.Auto)]
+  public static extern int GetWindowTextLength(HandleRef hWnd);
+  [DllImport("user32.dll", CharSet = CharSet.Auto)]
+  public static extern int GetWindowText(HandleRef hWnd, StringBuilder lpString, int nMaxCount);
 
   public const int MOUSEEVENTF_LEFTDOWN = 0x02;
   public const int MOUSEEVENTF_LEFTUP = 0x04;
