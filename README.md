@@ -3,6 +3,12 @@ A C# program that attempts to solve MinesweeperX (http://www.curtisbright.com/ms
 
 ![MinesweeperSolver solving expert mode in 2 seconds](https://raw.githubusercontent.com/PresNL/MinesweeperSolver/master/examples/minesweeper.gif)
 
+# Times
+These where the best times I was able to get after running it a couple of times
+
+![MinesweeperSolver best times](https://raw.githubusercontent.com/PresNL/MinesweeperSolver/master/examples/times.png)
+
+
 # Requirements
 - .net 4.7+ for Tuples
 
